@@ -20,6 +20,11 @@ Run by using:
 ./sort (path of file) (mode)
 ```
 
+or using `auto.sh` by runing
+```
+./auto (folder name) (mode)
+```
+
 `Mode` is to select sort algorithm to use:
 * `1` is for `Bubble Sort`
 * `2` is for `Insertion Sort`
