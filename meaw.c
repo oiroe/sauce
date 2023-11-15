@@ -116,9 +116,12 @@ int	main(int ac, char **av)
 	len = 0;
 	if (ac == 3)
 	{
+		if (ft_atoi(av[2]) < 1 || ft_atoi(av[2]) > 5)
+			return (0);
 		fd = open_file(av, &len);
 		stack = stack_create(len);
 		read_and_put(stack , fd);
+		close(fd);
 		printf("sort time : %lu microsecond\n", do_sort(stack, ft_atoi(av[2])));
 		free_stack(stack);
 	}
