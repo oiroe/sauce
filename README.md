@@ -28,4 +28,4 @@ Run by using:
 * `5` is for `Quick Sort`
 * `non of above` will result nothing and exit program
 
-### when run program will take about minute to readfile so `having patient ;-;`
+### when run your program, It will taking about minute to readfile so `be patient ;-;`
