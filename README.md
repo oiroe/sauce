@@ -5,7 +5,7 @@ Clone it to you computer by using
 ```
 git clone (mylink) (your beautiful name)
 ```
-The to run this program you must going into directory and then use:
+Then to run this program you must going into directory and then use:
 ```
 make
 ```
