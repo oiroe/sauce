@@ -12,6 +12,21 @@
 
 #include "sort.h"
 
+int	is_sort(t_arr *a)
+{
+	int	i;
+
+	i = 0;
+	while (i < a->size - 1)
+	{
+		if (a->stack[i] <= a->stack[i + 1])
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 void	free_stack(t_arr *a)
 {
 	if (a != NULL)
@@ -91,6 +106,7 @@ void	read_and_put(t_arr *a, int fd)
 long	do_sort(t_arr *a, int mode)
 {
 	long	start;
+	long	end;
 
 	start = get_time();
 	if (mode == 1)
@@ -103,17 +119,23 @@ long	do_sort(t_arr *a, int mode)
 		mergeSort(a->stack, 0, a->size - 1);
 	else if (mode == 5)
 		quick(a->stack, 0, a->size - 1);
-	return (now(start));
+	end = now(start);
+	if (is_sort(a) == 1)
+		return (end);
+	else
+		return (-1);
 }
 
 int	main(int ac, char **av)
 {
 	int		fd;
 	int		len;
+	long	time;
 	t_arr	*stack;
 
 	fd = 0;
 	len = 0;
+	time = 0;
 	if (ac == 3)
 	{
 		if (ft_atoi(av[2]) < 1 || ft_atoi(av[2]) > 5)
@@ -122,7 +144,11 @@ int	main(int ac, char **av)
 		stack = stack_create(len);
 		read_and_put(stack , fd);
 		close(fd);
-		printf("sort time : %lu microsecond\n", do_sort(stack, ft_atoi(av[2])));
+		time = do_sort(stack, ft_atoi(av[2]));
+		if (time == -1)
+			printf("having some error ;-;\n");
+		else
+			printf("%ssort time : %ld microsecond\n%s", GRN, time, RESET);
 		free_stack(stack);
 	}
 	else

@@ -8,7 +8,7 @@ fi
 # Set the path to the folder containing the files to be tested
 test_folder="$1"
 mode="$2"
-
+S
 # Build using Makefile
 make
 

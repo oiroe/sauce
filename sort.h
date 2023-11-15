@@ -17,6 +17,7 @@
 # include <string.h>
 # include <sys/time.h>
 # include "libft/libft.h"
+# include "color.h"
 
 typedef struct s_arr
 {
