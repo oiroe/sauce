@@ -22,7 +22,7 @@ Run by using:
 
 or using `auto.sh` by runing
 ```
-./auto (folder name) (mode)
+./auto.sh (folder name) (mode)
 ```
 
 `Mode` is to select sort algorithm to use:
